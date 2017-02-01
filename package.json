@@ -5,8 +5,9 @@
   "main": "metadata.js",
   "bin": {},
   "dependencies": {
+    "common-node": "^0.10.20",
     "fs": "0.0.1-security",
-    "request": "^2.79.0",
+    "sync-request": "^4.0.1",
     "yargs": "^6.6.0"
   },
   "devDependencies": {},

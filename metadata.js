@@ -1,5 +1,5 @@
 var fs = require('fs')
-var request = require('request')
+var request = require('sync-request')
 
 var argv = require('yargs')
     .option('t', {
@@ -28,20 +28,14 @@ var uri = argv.tika + "/meta";
 
 var buffer = fs.readFileSync(argv.file);
 
-var form_data = {
-    url: uri,
-    qs: {},
-    method: 'PUT',
-    headers: {
-        'Accept': 'application/json',
-        'Content-type': 'application/octet-stream'
-    },
-    body: buffer
-};
-
 for (var i=0; i<argv.count; i++) {
-    request.put(uri, form_data, function(err, resp, body) {
-        var data = JSON.parse(body);
-//        console.log(data);
+    var res = request('PUT', uri, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/octet-stream'
+        },
+        body: buffer
     });
+    var data = JSON.parse(res.body);
+//    console.log(data);
 }

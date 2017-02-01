@@ -1,0 +1,16 @@
+{
+  "name": "tikatest",
+  "version": "0.0.1",
+  "description": "Tika Testing",
+  "main": "metadata.js",
+  "bin": {},
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "request": "^2.79.0",
+    "yargs": "^6.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "Jeff Walls",
+  "license": "MIT"
+}
